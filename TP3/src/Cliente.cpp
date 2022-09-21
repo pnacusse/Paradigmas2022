@@ -12,6 +12,11 @@ Cliente::Cliente() {
 
 }
 
+Cliente::Cliente(int codigo, string nombre){
+	this->codigo = codigo;
+	this->nombre = nombre;
+}
+
 Cliente::~Cliente() {
 	// TODO Auto-generated destructor stub
 }
@@ -23,4 +28,3 @@ int Cliente::getCodigo(){
 string Cliente::getNombre(){
 	return this->nombre;
 }
-

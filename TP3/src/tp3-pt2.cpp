@@ -8,6 +8,10 @@
 
 #include "Autor.h"
 #include "Libro.h"
+#include "Venta.h"
+#include "Fecha.h"
+#include "Cliente.h"
+#include "Sistema.h"
 #include <iostream>
 using namespace std;
 
@@ -34,6 +38,35 @@ int main() {
 	cout<<"-----Libro Nuevo-----"<<endl;
 	nuevoLibro1.listarInfo();
 	nuevoLibro1.getBiografiaAutor();
+
+	/*Otro Libro*/
+	Libro nuevoLibro2(2, "Otro Libro", "Es otro Libro", "Magico", &nuevoAutor1, 11);
+	nuevoLibro2.listarInfo();
+	nuevoLibro2.getBiografiaAutor();
+
+	/*seteamos la fecha*/
+
+	Fecha fechaActual;
+	fechaActual.setFechaActual();
+
+	Cliente nuevoCliente(1, "Pablin");
+	Cliente nuevoCliente2(2, "Ismael");
+
+	/*Creo una nueva Venta*/
+	Venta nuevaVenta(fechaActual);
+	nuevaVenta.agregarLibro(&nuevoLibro1, 1, nuevoCliente);
+	nuevaVenta.agregarLibro(&nuevoLibro2, 2, nuevoCliente2);
+
+	/*Listamos la info*/
+	cout<<"-----Los Libros Cargados son-----"<<endl;
+	nuevaVenta.listarElementos();
+	cout<<"El monto total de la venta es: $"<<nuevaVenta.montoVenta()<<endl;
+
+	Sistema nuevoSistema;
+	nuevoSistema.agregarVenta(&nuevaVenta);
+	cout<<"Monto Recaudado: "<<nuevoSistema.montoRecaudado()<<endl;
+
+	nuevoSistema.buscarVenta(fechaActual);
 
 	return 0;
 }

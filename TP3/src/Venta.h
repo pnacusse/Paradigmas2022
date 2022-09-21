@@ -2,7 +2,8 @@
  * Venta.h
  *
  *  Created on: 16 sept 2022
- *      Author: untadmin
+ *      Author: Pablin
+ *
  */
 
 #ifndef VENTA_H_
@@ -16,12 +17,16 @@ using namespace std;
 
 class Venta {
 	int codigo;
-	Fecha fecha;
+	Fecha fechaVenta;
 	vector <Libro*> libros;
 	Cliente cliente;
 public:
 	Venta();
+	Venta(Fecha & fechaV);
+	bool agregarLibro(Libro * nuevoLibro, int codigo, Cliente cliente);
 	float montoVenta();
+	Fecha getFecha();
+	void listarElementos();
 	virtual ~Venta();
 };
 

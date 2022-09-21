@@ -41,4 +41,3 @@ Autor::Autor() {
 Autor::~Autor() {
 	// TODO Auto-generated destructor stub
 }
-

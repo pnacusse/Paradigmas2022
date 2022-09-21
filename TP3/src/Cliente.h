@@ -15,6 +15,7 @@ class Cliente {
 	string nombre;
 public:
 	Cliente();
+	Cliente(int codigo, string nombre);
 	int getCodigo();
 	string getNombre();
 	virtual ~Cliente();
